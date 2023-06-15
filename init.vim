@@ -9,8 +9,14 @@ set noswapfile
 set clipboard=unnamedplus
 syntax enable
 
-"KEY MAP
+"INSTALL PLUGINMANAGER
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
+"KEY MAP
 let mapleader=";"
 nnoremap <leader> $VIM<CR>
 
@@ -18,6 +24,18 @@ nnoremap <leader> $VIM<CR>
 nnoremap <leader><leader>e :ReplToggle<CR>
 map <leader>e <Plug>ReplSendLine
 vmap <leader>e <Plug>ReplSendVisual
+
+"PlUGUIN AUTO INSTALL
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 "PLUGUIN MGMENT
 call plug#begin('~/.local/share/nvim/plugged')
@@ -35,7 +53,7 @@ call plug#end()
 set background=dark
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
-colorscheme onedark:
+colorscheme onedark
 
 "LIGHTLINE 
 let g:lightline = {
