@@ -47,6 +47,8 @@ Plug 'karoliskoncevicius/vim-sendtowindow'  "send code to another window(repl)
 Plug 'jupyter-vim/jupyter-vim'              "linkear jupyter con vim
 Plug 'tpope/vim-repeat'                     "x
 Plug 'pappasam/nvim-repl'                   "Toogle repl
+Plug 'tribela/vim-transparent'              "Vim Transparencia
+
 call plug#end()
 
 "ONEDARK 
