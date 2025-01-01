@@ -1,4 +1,4 @@
-NVIM CONFIG
+# NVIM CONFIG
 
 Ubicar este archivo en:
     ~/.config/nvim/init.vim
@@ -9,8 +9,7 @@ Si la carpeta no esta creada crearla y nvim debería reconocer el archivo autom�
     por alguna razón nvim lee el archivo de configuracion sin estar establecida ninguna variable de entorno
 
 
-
-TMUX CONFIG
+# TMUX CONFIG
 
 Configuracion util
 
@@ -27,5 +26,9 @@ Check if tmux is reading conf file
 tmux show-options -g
 tmux show -g <some_option>
 
+FALTA
+ instalar tmux-yank
+ instalar tpm
 
-
+# INSTALL NERD FONT (required for nvchad)
+just run install_jbm.sh
