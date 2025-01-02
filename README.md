@@ -1,4 +1,25 @@
-# NVIM CONFIG
+# INSTALL NEOVIM
+Dont use apt!!!
+
+Download image from:
+    https://github.com/neovim/neovim/releases/tag/v0.10.3
+
+Or run:
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+
+Extract (without fuse)
+./nvim.appimage --appimage-extract
+./squashfs-root/usr/bin/nvim
+
+Exposing nvim globally
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+nvim
+
+
+# NVIM CONFIG (deprecated, now using nvchad)
 
 Ubicar este archivo en:
     ~/.config/nvim/init.vim
@@ -30,5 +51,15 @@ FALTA
  instalar tmux-yank
  instalar tpm
 
-# INSTALL NERD FONT (required for nvchad)
-just run install_jbm.sh
+# Install NvChad
+
+## INSTALL NERD FONT (required for nvchad)
+run install_jbm.sh
+
+## REMOVE OLD FILES
+run rm_vim_data.sh
+
+## INSTALL NvCHAd
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+
+get font working
